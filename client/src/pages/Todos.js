@@ -121,7 +121,7 @@ const handleEdit = (id, currentText) => {
 
 const handleUpdate = async (id) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/todos/${id}`, {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
