@@ -19,7 +19,7 @@ export default function Todos() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/todos", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/todos`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -45,7 +45,7 @@ export default function Todos() {
     if (!newTodo.trim()) return;
 
     try {
-      const res = await fetch("http://localhost:5000/api/todos", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/todos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export default function Todos() {
   // Toggle complete status
 const handleToggle = async (id) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/todos/${id}/toggle`, {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/todos/${id}/toggle`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -95,7 +95,7 @@ const handleToggle = async (id) => {
 // Delete a todo
 const handleDelete = async (id) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/todos/${id}`, {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/todos/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
