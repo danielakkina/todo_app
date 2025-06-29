@@ -10,6 +10,7 @@ export default function Todos() {
 
 
   const token = localStorage.getItem("token");
+  console.log('REACT_APP_API_URL', process.env.REACT_APP_API_URL);
 
   // Fetch all todos
   const fetchTodos = async () => {
