@@ -40,23 +40,24 @@ A full-stack to-do list application built using **React**, **Node.js**, **Expres
 
 ## 📁 Project Structure
 
-todo_app/
-│
-├── client/
-│ ├── public/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── App.js
-│ │ └── index.js
-│ └── .env
-│
-├── server/
-│ ├── config/
-│ ├── models/
-│ ├── routes/
-│ ├── middleware/
-│ ├── index.js
-│ └── .env
-│
-└── README.md
+
+| Path               | Description                     |
+|--------------------|-------------------------------|
+| `client/`          | React frontend root            |
+| `client/public/`   | Static files                   |
+| `client/src/`      | React source code              |
+| `client/src/components/` | Reusable UI components    |
+| `client/src/pages/`      | Page-level components      |
+| `client/src/App.js`      | Main React app component   |
+| `client/src/index.js`    | Entry point                |
+| `client/.env`      | Environment variables (frontend) |
+| `server/`          | Express backend root           |
+| `server/config/`   | Database configs               |
+| `server/models/`   | Mongoose models                |
+| `server/routes/`   | API route handlers             |
+| `server/middleware/` | Middleware functions         |
+| `server/index.js`  | Backend entry point            |
+| `server/.env`      | Environment variables (backend) |
+| `README.md`        | Project documentation          |
+
+
