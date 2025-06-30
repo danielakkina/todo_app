@@ -41,15 +41,22 @@ A full-stack to-do list application built using **React**, **Node.js**, **Expres
 ## 📁 Project Structure
 
 todo_app/
-├── client/ # React frontend
-│ └── src/
-│ ├── components/
-│ ├── pages/
-│ └── App.js
-  └── .env
-├── server/ # Express backend
+│
+├── client/
+│ ├── public/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── App.js
+│ │ └── index.js
+│ └── .env
+│
+├── server/
+│ ├── config/
 │ ├── models/
 │ ├── routes/
-│ ├── config/
+│ ├── middleware/
 │ ├── index.js
 │ └── .env
+│
+└── README.md
