@@ -7,17 +7,26 @@ export default function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    console.log('SIGNUP URL', `${process.env.REACT_APP_API_URL}/api/auth/signup`);
+
+    // ✅ Frontend validation
+    if (username.trim().length < 3) {
+      setMessage("⚠️ Username must be at least 3 characters");
+      return;
+    }
+    if (password.trim().length < 6) {
+      setMessage("⚠️ Password must be at least 6 characters");
+      return;
+    }
+
+    const url = `${process.env.REACT_APP_API_URL}/api/auth/signup`;
+    console.log("✅ SIGNUP URL:", url);
 
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signup`, {
+      const res = await fetch(url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ username, password })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
       });
-
       const data = await res.json();
 
       if (res.ok) {
@@ -25,10 +34,11 @@ export default function Signup() {
         setUsername("");
         setPassword("");
       } else {
-        setMessage(`❌ ${data.error}`);
+        setMessage(`❌ ${data.error || "Signup failed"}`);
       }
     } catch (err) {
-      setMessage("❌ Network error");
+      console.error("Network error:", err);
+      setMessage("❌ Network error, please try again.");
     }
   };
 
@@ -38,21 +48,23 @@ export default function Signup() {
       <form onSubmit={handleSignup}>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Username (min 3 chars)"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-        /><br /><br />
+        />
+        <br /><br />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Password (min 6 chars)"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-        /><br /><br />
+        />
+        <br /><br />
         <button type="submit">Sign Up</button>
       </form>
-      <p>{message}</p>
+      {message && <p>{message}</p>}
     </div>
   );
 }

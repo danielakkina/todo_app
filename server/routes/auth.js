@@ -6,7 +6,7 @@ const router = express.Router();
 
 // POST /signup
 router.post("/signup", async (req, res) => {
-  console.log("Signup route hit");
+
 
   try {
     const { username, password } = req.body;
@@ -26,7 +26,7 @@ router.post("/signup", async (req, res) => {
 
     res.status(201).json({ message: "User created successfully" });
   } catch (err) {
-    console.error(err);
+   
     res.status(500).json({ error: "Server error" });
   }
 });
