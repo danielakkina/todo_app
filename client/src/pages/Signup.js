@@ -7,6 +7,7 @@ export default function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    console.log('SIGNUP URL', `${process.env.REACT_APP_API_URL}/api/auth/signup`);
 
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signup`, {
